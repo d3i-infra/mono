@@ -12,5 +12,5 @@ config :core, Systems.Account.UserAuth,
   member_signed_in_page: "/console"
 
 config :core, :meta,
-  bundle_title: "Self",
+  bundle_title: "Data Donatie",
   bundle: :port
