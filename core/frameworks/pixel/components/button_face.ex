@@ -172,16 +172,23 @@ defmodule Frameworks.Pixel.Button.Face do
     """
   end
 
+  # Menu home, removed all menu home logos
+  # They can be substituted for another logo
   attr(:icon, :atom, required: true)
   attr(:size, :atom, default: :wide)
 
+  #def menu_home(assigns) do
+  #  ~H"""
+  #    <div class={"flex flex-row items-center justify-start rounded-full focus:outline-none h-12"}>
+  #      <div class="flex flex-col items-center justify-center">
+  #        <Icon.menu_home name={@icon} size={@size} />
+  #      </div>
+  #    </div>
+  #  """
+  #end
+
   def menu_home(assigns) do
     ~H"""
-      <div class={"flex flex-row items-center justify-start rounded-full focus:outline-none h-12"}>
-        <div class="flex flex-col items-center justify-center">
-          <Icon.menu_home name={@icon} size={@size} />
-        </div>
-      </div>
     """
   end
 
