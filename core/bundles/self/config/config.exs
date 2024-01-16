@@ -12,5 +12,5 @@ config :core, CoreWeb.UserAuth,
   participant_signed_in_page: "/project"
 
 config :core, :meta,
-  bundle_title: "Self",
+  bundle_title: "Data Donatie",
   bundle: :port
