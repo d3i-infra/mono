@@ -14,7 +14,7 @@ defmodule Frameworks.Pixel.Navigation do
 
   def navbar(assigns) do
     ~H"""
-    <div class="w-full h-topbar sm:h-topbar-sm lg:h-topbar-lg">
+    <div class="w-full h-topbar sm:h-topbar-sm lg:h-topbar-sm">
       <Align.horizontal_center>
         <%= if @home do %>
           <div class="flex-wrap">
