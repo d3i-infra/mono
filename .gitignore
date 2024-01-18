@@ -39,7 +39,7 @@ npm-debug.log
 node_modules/
 
 # Ignore assets that are produced by build tools.
-/core/priv/static/assets/
+/core/priv/static/*
 
 # Ignore digested assets cache.
 /core/priv/static/cache_manifest.json
