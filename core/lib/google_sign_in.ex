@@ -47,6 +47,7 @@ defmodule GoogleSignIn do
     end
   end
 
+  # CHANGED BY NIEK
   defmacro routes(otp_app) do
     quote bind_quoted: [otp_app: otp_app] do
       pipeline :google_sign_in_browser do
@@ -56,7 +57,7 @@ defmodule GoogleSignIn do
 
       scope "/", GoogleSignIn do
         pipe_through([:google_sign_in_browser])
-        get("/google-sign-in", AuthorizePlug, otp_app, as: :google_sign_in)
+        get("/google-sign-in", CallbackPlug, otp_app, as: :google_sign_in)
         get("/google-sign-in/auth", CallbackPlug, otp_app)
       end
     end

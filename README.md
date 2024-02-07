@@ -5,8 +5,9 @@ This repository is used to deploy Next on Surf research cloud.
 
 The changes with the upstream are:
 
-- no footer
-- no brand logo
+- No footer
+- No brand logo
+- Changed the `GoogleSignIn` module. Google sign in is not used anymore. Pressign sign in, will sign you in with a default hardcoded account. See `google_sign_in.ex` and `./google_sign_in/plug.ex`.
 
 
 # Eyra Mono
