@@ -13,7 +13,7 @@
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
     <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
-    <script src="dist/sidebar_items-42909794.js"></script>
+    <script src="dist/sidebar_items-58F1815A.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -80,6 +80,8 @@ core
 
         <li><a id="modules-list-link" href="#full-list">Modules</a></li>
 
+
+        <li><a id="tasks-list-link" href="#full-list"><span translate="no">Mix</span> Tasks</a></li>
 
     </ul>
   </div>
@@ -165,7 +167,7 @@ core
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#form/1" translate="no">form(term)</a>
+        <a href="#form/2" translate="no">form(term, arg2)</a>
 
       </div>
 
@@ -358,14 +360,14 @@ Functions
 
   </section>
 </section>
-<section class="detail" id="form/1">
+<section class="detail" id="form/2">
 
   <div class="detail-header">
-    <a href="#form/1" class="detail-link" title="Link to this function">
+    <a href="#form/2" class="detail-link" title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature" translate="no">form(term)</h1>
+    <h1 class="signature" translate="no">form(term, arg2)</h1>
 
       <a href="https://github.com/eyra/mono/blob/main/frameworks/concept/tool_model.ex#L18" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
@@ -379,7 +381,7 @@ Functions
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@spec</span> form(<a href="#t:t/0">t</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>()</pre>
+          <pre translate="no"><span class="attribute">@spec</span> form(<a href="#t:t/0">t</a>(), special :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>()</pre>
 
       </div>
 
@@ -463,7 +465,7 @@ Functions
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@spec</span> launcher(<a href="#t:t/0">t</a>()) :: %{url: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()} | %{module: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>(), params: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()} | nil</pre>
+          <pre translate="no"><span class="attribute">@spec</span> launcher(<a href="#t:t/0">t</a>()) :: %{url: <a href="https://hexdocs.pm/elixir/URI.html#t:t/0">URI.t</a>()} | %{module: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>(), params: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()} | nil</pre>
 
       </div>
 

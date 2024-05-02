@@ -13,7 +13,7 @@
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
     <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
-    <script src="dist/sidebar_items-42909794.js"></script>
+    <script src="dist/sidebar_items-58F1815A.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -80,6 +80,8 @@ core
 
         <li><a id="modules-list-link" href="#full-list">Modules</a></li>
 
+
+        <li><a id="tasks-list-link" href="#full-list"><span translate="no">Mix</span> Tasks</a></li>
 
     </ul>
   </div>
@@ -367,6 +369,22 @@ this function.</p></div>
 
     <div class="summary-row">
       <div class="summary-signature">
+        <a href="#prepare_role/3" translate="no">prepare_role(node, principal, role)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#print_roles/1" translate="no">print_roles(entity)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
         <a href="#query_node_ids/1" translate="no">query_node_ids(opts \\ [])</a>
 
       </div>
@@ -423,7 +441,7 @@ this function.</p></div>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#user_has_role?/3" translate="no">user_has_role?(user, entity, role)</a>
+        <a href="#user_has_role?/3" translate="no">user_has_role?(user_id, entity, role)</a>
 
       </div>
 
@@ -555,7 +573,7 @@ this function.</p>
     </a>
     <h1 class="signature" translate="no">can?(principal, entity, permission)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L224" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L228" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -599,7 +617,7 @@ this function.</p>
     </a>
     <h1 class="signature" translate="no">can_access?(principal, module)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L213" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L217" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -621,7 +639,7 @@ this function.</p>
     </a>
     <h1 class="signature" translate="no">can_access?(principal, entity, module)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L218" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L222" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -643,7 +661,7 @@ this function.</p>
     </a>
     <h1 class="signature" translate="no">copy(node)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L133" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L137" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -665,7 +683,7 @@ this function.</p>
     </a>
     <h1 class="signature" translate="no">copy(node, new_parent)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L143" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L147" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -687,7 +705,7 @@ this function.</p>
     </a>
     <h1 class="signature" translate="no">copy_auth_node(map)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L164" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L168" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -709,7 +727,7 @@ this function.</p>
     </a>
     <h1 class="signature" translate="no">copy_auth_node(arg1, new_parent)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L156" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L160" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -731,7 +749,7 @@ this function.</p>
     </a>
     <h1 class="signature" translate="no">copy_role(role, node)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L168" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L172" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -755,7 +773,7 @@ this function.</p>
     </a>
     <h1 class="signature" translate="no">create_node(parent \\ nil)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L119" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L123" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -779,7 +797,7 @@ this function.</p>
     </a>
     <h1 class="signature" translate="no">create_node!(parent \\ nil)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L126" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L130" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -801,7 +819,7 @@ this function.</p>
     </a>
     <h1 class="signature" translate="no">first_user_with_role(entity, role, preload)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L256" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L264" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -823,7 +841,7 @@ this function.</p>
     </a>
     <h1 class="signature" translate="no">get_node!(id)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L83" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L77" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -845,7 +863,7 @@ this function.</p>
     </a>
     <h1 class="signature" translate="no">get_parent_nodes(node_id)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L191" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L195" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -867,7 +885,7 @@ this function.</p>
     </a>
     <h1 class="signature" translate="no">link(auth_tree)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L278" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L286" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -889,7 +907,7 @@ this function.</p>
     </a>
     <h1 class="signature" translate="no">link(multi, arg)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L284" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L292" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -911,7 +929,7 @@ this function.</p>
     </a>
     <h1 class="signature" translate="no">link(multi, parent, child)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L305" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L313" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -1021,7 +1039,7 @@ this function.</p>
     </a>
     <h1 class="signature" translate="no">prepare_node()</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L85" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L79" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -1043,7 +1061,7 @@ this function.</p>
     </a>
     <h1 class="signature" translate="no">prepare_node(roles)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L89" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L83" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -1065,7 +1083,7 @@ this function.</p>
     </a>
     <h1 class="signature" translate="no">prepare_node(principal, role)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L105" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L99" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -1087,7 +1105,51 @@ this function.</p>
     </a>
     <h1 class="signature" translate="no">prepare_role(principal, role)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L110" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L104" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="prepare_role/3">
+
+  <div class="detail-header">
+    <a href="#prepare_role/3" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">prepare_role(node, principal, role)</h1>
+
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L113" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="print_roles/1">
+
+  <div class="detail-header">
+    <a href="#print_roles/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">print_roles(entity)</h1>
+
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L329" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -1223,7 +1285,7 @@ this function.</p>
     </a>
     <h1 class="signature" translate="no">roles_intersect?(principal, entity, roles)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L195" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L199" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -1245,7 +1307,7 @@ this function.</p>
     </a>
     <h1 class="signature" translate="no">top_entity(entity)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L272" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L280" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -1265,9 +1327,9 @@ this function.</p>
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature" translate="no">user_has_role?(user, entity, role)</h1>
+    <h1 class="signature" translate="no">user_has_role?(user_id, entity, role)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L251" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L255" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -1291,7 +1353,7 @@ this function.</p>
     </a>
     <h1 class="signature" translate="no">users_with_role(node_id, role, preload \\ [])</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L229" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core/authorization.ex#L233" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>

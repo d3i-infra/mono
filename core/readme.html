@@ -7,13 +7,13 @@
     <meta name="generator" content="ExDoc v0.29.3">
     <meta name="project" content="core v0.1.0">
 
-    <title>Eyra Mono — core v0.1.0</title>
+    <title>Eyra Mono D3I — core v0.1.0</title>
     <link rel="stylesheet" href="dist/html-elixir-MB5C7R66.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
     <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
-    <script src="dist/sidebar_items-42909794.js"></script>
+    <script src="dist/sidebar_items-58F1815A.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -81,6 +81,8 @@ core
         <li><a id="modules-list-link" href="#full-list">Modules</a></li>
 
 
+        <li><a id="tasks-list-link" href="#full-list"><span translate="no">Mix</span> Tasks</a></li>
+
     </ul>
   </div>
 
@@ -106,10 +108,11 @@ core
     </a>
 
 
-  <span>Eyra Mono</span>
+  <span>Eyra Mono D3I</span>
 </h1>
 
-<p>Primary collection of Eyra projects</p><h2 id="projects" class="section-heading">
+<p>This repository contains the D3I fork of eyra/mono (containing the SaaS product Next).
+This repository is used to deploy Next on Surf research cloud.</p><p>The changes with the upstream are:</p><ul><li>No footer</li><li>No brand logo</li><li>Changed the <a href="GoogleSignIn.html"><code class="inline">GoogleSignIn</code></a> module. Google sign in is not used anymore. Pressign sign in, will sign you in with a default hardcoded account. See <code class="inline">google_sign_in.ex</code> and <code class="inline">./google_sign_in/plug.ex</code>.</li></ul><h1>Eyra Mono</h1><p>Primary collection of Eyra projects</p><h2 id="projects" class="section-heading">
   <a href="#projects" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">projects</p>
   </a>
@@ -134,7 +137,7 @@ core
   Bundles
 </h3>
 <ul><li>Next</li></ul><p>Primary bundle with all features available. Next is configured and maintained by Eyra and hosted on: <a href="https://eyra.co">https://eyra.co</a></p><ul><li>Self</li></ul><p>Customizable bundle that can be used to run Core on one of your own servers.
-See <a href="SELFHOSTING.md">SELFHOSTING.md</a> for detailed instructions.</p><h2 id="banking-proxy" class="section-heading">
+See <a href="selfhosting.html">SELFHOSTING.md</a> for detailed instructions.</p><h2 id="banking-proxy" class="section-heading">
   <a href="#banking-proxy" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">banking-proxy</p>
   </a>
@@ -144,12 +147,12 @@ See <a href="SELFHOSTING.md">SELFHOSTING.md</a> for detailed instructions.</p><h
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
-      <a href="api-reference.html" class="bottom-actions-button" rel="prev">
+      <a href="selfhosting.html" class="bottom-actions-button" rel="prev">
         <span class="subheader">
           ← Previous Page
         </span>
         <span class="title">
-API Reference
+Self hosting
         </span>
       </a>
 

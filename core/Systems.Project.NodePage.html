@@ -13,7 +13,7 @@
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
     <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
-    <script src="dist/sidebar_items-42909794.js"></script>
+    <script src="dist/sidebar_items-58F1815A.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -80,6 +80,8 @@ core
 
         <li><a id="modules-list-link" href="#full-list">Modules</a></li>
 
+
+        <li><a id="tasks-list-link" href="#full-list"><span translate="no">Mix</span> Tasks</a></li>
 
     </ul>
   </div>
@@ -221,7 +223,31 @@ core
 
     <div class="summary-row">
       <div class="summary-signature">
+        <a href="#observe_event/1" translate="no">observe_event(socket)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
         <a href="#observe_view_model/1" translate="no">observe_view_model(socket)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#put_info_flash/2" translate="no">put_info_flash(socket, from_pid)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#put_saved_info_flash/1" translate="no">put_saved_info_flash(socket)</a>
 
       </div>
 
@@ -247,6 +273,14 @@ core
 
     <div class="summary-row">
       <div class="summary-signature">
+        <a href="#reset_fabric/1" translate="no">reset_fabric(socket)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
         <a href="#update_child/2" translate="no">update_child(context, child_name)</a>
 
       </div>
@@ -256,6 +290,14 @@ core
     <div class="summary-row">
       <div class="summary-signature">
         <a href="#update_menus/1" translate="no">update_menus(socket)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#update_timezone/2" translate="no">update_timezone(socket, session)</a>
 
       </div>
 
@@ -300,7 +342,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">build_menu(assigns, type)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L5" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L6" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -322,7 +364,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">build_menus(socket)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L5" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L6" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -344,7 +386,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">builder()</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L5" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L6" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -432,7 +474,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">handle_auto_save_done(socket)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L39" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L42" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -476,7 +518,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">handle_uri(socket)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L5" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L6" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -498,7 +540,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">handle_view_model_updated(socket)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L35" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L38" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -533,6 +575,28 @@ Functions
 <p>Automatically assigns Fabric to the socket on mount</p>
   </section>
 </section>
+<section class="detail" id="observe_event/1">
+
+  <div class="detail-header">
+    <a href="#observe_event/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">observe_event(socket)</h1>
+
+      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L8" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
 <section class="detail" id="observe_view_model/1">
 
   <div class="detail-header">
@@ -542,7 +606,51 @@ Functions
     </a>
     <h1 class="signature" translate="no">observe_view_model(socket)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L7" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L8" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="put_info_flash/2">
+
+  <div class="detail-header">
+    <a href="#put_info_flash/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">put_info_flash(socket, from_pid)</h1>
+
+      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L8" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="put_saved_info_flash/1">
+
+  <div class="detail-header">
+    <a href="#put_saved_info_flash/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">put_saved_info_flash(socket)</h1>
+
+      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L8" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -564,7 +672,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">put_updated_info_flash(socket)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L7" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L8" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -600,6 +708,28 @@ Functions
   </span><span class="nc">See</span><span class="w"> </span><span class="nc">Systems.Project.NodePageBuilder</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">detailed</span><span class="w"> </span><span class="n">information</span></code></pre>
   </section>
 </section>
+<section class="detail" id="reset_fabric/1">
+
+  <div class="detail-header">
+    <a href="#reset_fabric/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">reset_fabric(socket)</h1>
+
+      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L3" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
 <section class="detail" id="update_child/2">
 
   <div class="detail-header">
@@ -631,7 +761,29 @@ Functions
     </a>
     <h1 class="signature" translate="no">update_menus(socket)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L5" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L6" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="update_timezone/2">
+
+  <div class="detail-header">
+    <a href="#update_timezone/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">update_timezone(socket, session)</h1>
+
+      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L4" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -653,7 +805,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">update_view_model(socket)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L7" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/systems/project/node_page.ex#L8" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>

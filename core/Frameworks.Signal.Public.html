@@ -13,7 +13,7 @@
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
     <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
-    <script src="dist/sidebar_items-42909794.js"></script>
+    <script src="dist/sidebar_items-58F1815A.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -81,6 +81,8 @@ core
         <li><a id="modules-list-link" href="#full-list">Modules</a></li>
 
 
+        <li><a id="tasks-list-link" href="#full-list"><span translate="no">Mix</span> Tasks</a></li>
+
     </ul>
   </div>
 
@@ -147,7 +149,9 @@ core
 
       </div>
 
-        <div class="summary-synopsis"><p>Send a signal as part of an Ecto Multi.</p></div>
+        <div class="summary-synopsis"><p>Send a signal as part of an Ecto Multi.
+It automatically merges the message with the multi
+changes.</p></div>
 
     </div>
 
@@ -174,7 +178,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">dispatch(signal, message)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/frameworks/signal/_public.ex#L22" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/frameworks/signal/_public.ex#L26" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -196,7 +200,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">dispatch!(signal, message)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/frameworks/signal/_public.ex#L32" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/frameworks/signal/_public.ex#L45" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -220,7 +224,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">multi_dispatch(multi, signal, message \\ %{})</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/frameworks/signal/_public.ex#L42" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/frameworks/signal/_public.ex#L54" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -230,7 +234,8 @@ Functions
 
   <section class="docstring">
 
-<p>Send a signal as part of an Ecto Multi.</p><p>It automatically merges the message with the multi
+<p>Send a signal as part of an Ecto Multi.
+It automatically merges the message with the multi
 changes.</p>
   </section>
 </section>
