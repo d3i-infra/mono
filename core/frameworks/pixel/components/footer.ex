@@ -52,7 +52,6 @@ defmodule CoreWeb.UI.Footer do
     ~H"""
       <div class="w-full h-platform-footer-height flex flex-row items-center justify-center">
         <Text.footnote>
-          <%= raw(@content) %>
         </Text.footnote>
       </div>
     """
