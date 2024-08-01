@@ -14,6 +14,7 @@ defmodule Systems.Workflow.Platforms do
          :tiktok,
          :whatsapp,
          :x,
-         :youtube
+         :youtube,
+         :openai,
        ]}
 end
