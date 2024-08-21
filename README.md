@@ -1,3 +1,15 @@
+# Eyra Mono D3I
+
+This repository contains the D3I fork of eyra/mono (containing the SaaS product Next).
+This repository is used to deploy Next on Surf research cloud. Only use this repository as a catalog item on Surf Research Cloud!
+
+The changes with the upstream are:
+
+- No footer
+- No brand logo
+- Changed login
+
+
 # Eyra Mono
 
 Codebase used by the Next platform, which is also available for self hosting (see [bundles](https://github.com/eyra/mono#bundles)).

@@ -68,7 +68,6 @@ defmodule GoogleSignIn.CallbackPlug do
 
   defp register_user(info, creator?) do
     {:ok, google_sign_in_user} = GoogleSignIn.register_user(info, creator?)
-    google_sign_in_user.user
   end
 
   defp admin?(%{"email" => email}), do: Systems.Admin.Public.admin?(email)
