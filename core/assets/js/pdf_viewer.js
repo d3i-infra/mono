@@ -56,34 +56,37 @@ export const PDFViewer = {
     console.log("[PDFViewer] Render page", pageNum, width);
     this.pdf.getPage(pageNum).then(
       async (page) => {
-        var scale = window.devicePixelRatio;
-        var viewport = page.getViewport({ scale: scale });
-        if (width < viewport.width) {
-          scale = (width / viewport.width) * scale;
-        }
-
-        //This gives us the page's dimensions at full scale
-        viewport = page.getViewport({ scale: scale });
-
-        //We'll create a canvas for each page to draw it on
-        const canvas = this.createCanvas(viewport);
+        var canvas = this.createCanvas();
         const context = canvas.getContext("2d");
-        page.render({ canvasContext: context, viewport: viewport });
 
-        // Make annotations clickable
-        const annotations = await page.getAnnotations()
+        const pdfWidth = page.getViewport({ scale: 1 }).width;
+        const viewport = page.getViewport({ scale: width / pdfWidth });
+        const scale = viewport.width / pdfWidth;
 
-        function translateEventCoordinatesToPdfViewport(canvas, x ,y) {
+        console.log("[PDFViewer] width", width);
+        console.log("[PDFViewer] pdfWidth", pdfWidth);
+        console.log("[PDFViewer] viewport.width", viewport.width);
+
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+
+        const annotations = await page.getAnnotations();
+
+        function translateEventCoordinatesToPdfViewport(canvas, x, y) {
           const rect = canvas.getBoundingClientRect();
           const newx = (x - rect.left) / scale;
           const newy = (-1 * (y - rect.bottom)) / scale;
-          return {x: newx, y: newy}
+          return { x: newx, y: newy };
         }
 
         canvas.addEventListener("click", (event) => {
-          const {x, y} = translateEventCoordinatesToPdfViewport(canvas, event.clientX, event.clientY)
+          const { x, y } = translateEventCoordinatesToPdfViewport(
+            canvas,
+            event.clientX,
+            event.clientY
+          );
           for (let annotation of annotations) {
-            const rect  = annotation.rect
+            const rect = annotation.rect;
             if (x > rect[0] && x < rect[2] && y > rect[1] && y < rect[3]) {
               if (annotation.url) {
                 window.open(annotation.url, "_blank");
@@ -93,18 +96,23 @@ export const PDFViewer = {
         });
 
         canvas.addEventListener("mousemove", (event) => {
-          const {x, y} = translateEventCoordinatesToPdfViewport(canvas, event.clientX, event.clientY)
+          const { x, y } = translateEventCoordinatesToPdfViewport(
+            canvas,
+            event.clientX,
+            event.clientY
+          );
           for (let annotation of annotations) {
-            const rect  = annotation.rect
+            const rect = annotation.rect;
             if (x > rect[0] && x < rect[2] && y > rect[1] && y < rect[3]) {
-              canvas.style.cursor = "pointer"
-              break
+              canvas.style.cursor = "pointer";
+              break;
             } else {
-              canvas.style.cursor = "default"
+              canvas.style.cursor = "default";
             }
           }
-        })
+        });
 
+        page.render({ canvasContext: context, viewport: viewport });
 
         this.renderPage(width, pageNum + 1);
       },
@@ -122,11 +130,9 @@ export const PDFViewer = {
     this.container.style.display = "block";
     this.el.appendChild(this.container);
   },
-  createCanvas(viewport) {
+  createCanvas() {
     var canvas = document.createElement("canvas");
     canvas.style.display = "block";
-    canvas.height = viewport.height;
-    canvas.width = viewport.width;
     this.container.appendChild(canvas);
     return canvas;
   },
