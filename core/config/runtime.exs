@@ -3,17 +3,9 @@ import Config
 if config_env() == :prod do
   app_name = System.fetch_env!("APP_NAME")
   app_domain = System.fetch_env!("APP_DOMAIN")
-  app_mail_domain = System.fetch_env!("APP_MAIL_DOMAIN")
+  app_mail_domain = "@NOTRELEVANTANYMORE.com" # CHANGED BY NIEK
   app_mail_noreply = "no-reply@#{app_mail_domain}"
   upload_path = System.fetch_env!("STATIC_PATH")
-
-  scheme = "https"
-  base_url = "#{scheme}://#{app_domain}"
-
-  config :core,
-    name: app_name,
-    base_url: base_url,
-    upload_path: upload_path
 
   # Allow enabling of features from an environment variable
   config :core,
@@ -25,13 +17,15 @@ if config_env() == :prod do
 
   config :core,
          :admins,
-         System.get_env("APP_ADMINS", "") |> String.split() |> Systems.Admin.Public.compile()
+         "NOTRELEVANTANYMORE" |> String.split() |> Systems.Admin.Public.compile() # CHANGED BY NIEK
+
+  config :core, :upload_path, upload_path
 
   config :core, CoreWeb.Endpoint,
     cache_static_manifest: "priv/static/cache_manifest.json",
     server: true,
     secret_key_base: System.fetch_env!("SECRET_KEY_BASE"),
-    url: [host: app_domain, scheme: scheme, port: 443],
+    url: [host: app_domain, scheme: "https", port: 443],
     http: [
       port: String.to_integer(System.get_env("HTTP_PORT", "8000"))
     ]
@@ -57,17 +51,28 @@ if config_env() == :prod do
       hackney_opts: [recv_timeout: :timer.minutes(1)]
   end
 
-  # EX AWS
-  config :ex_aws,
-    access_key_id: System.get_env("AWS_ACCESS_KEY_ID"),
-    secret_access_key: System.get_env("AWS_SECRET_ACCESS_KEY"),
-    region: System.get_env("AWS_REGION")
+  # AWS
 
-  # AWS SES
-  config :core, Systems.Email.Mailer,
-    adapter: Bamboo.SesAdapter,
-    domain: app_domain,
-    default_from_email: {app_name, app_mail_noreply}
+  if bucket = System.get_env("AWS_S3_BUCKET") do
+    config :core, :s3, bucket: bucket
+  end
+
+  if aws_access_key_id = System.get_env("AWS_ACCESS_KEY_ID") do
+    config :ex_aws, access_key_id: aws_access_key_id
+
+    config :core, Systems.Email.Mailer,
+      adapter: Bamboo.SesAdapter,
+      domain: app_domain,
+      default_from_email: {app_name, app_mail_noreply}
+  end
+
+  if secret_access_key = System.get_env("AWS_SECRET_ACCESS_KEY") do
+    config :ex_aws, secret_access_key: secret_access_key
+  end
+
+  if aws_region = System.get_env("AWS_REGION") do
+    config :ex_aws, region: aws_region
+  end
 
   # AZURE BLOB
 
@@ -95,19 +100,20 @@ if config_env() == :prod do
       hostname: System.get_env("DB_HOST")
   end
 
+  # CHANGE BY NIEK
   config :core, GoogleSignIn,
-    redirect_uri: "#{base_url}/google-sign-in/auth",
-    client_id: System.get_env("GOOGLE_SIGN_IN_CLIENT_ID"),
-    client_secret: System.get_env("GOOGLE_SIGN_IN_CLIENT_SECRET")
+    redirect_uri:  "NOT RELAVANT ANYMORE",
+    client_id: "NOT RELEVANT ANYMORE",
+    client_secret: "NOT RELEVANT ANYMORE"
 
   config :core, Core.SurfConext,
-    redirect_uri: "#{base_url}/surfconext/auth",
+    redirect_uri: "https://#{app_domain}/surfconext/auth",
     site: System.get_env("SURFCONEXT_SITE"),
     client_id: System.get_env("SURFCONEXT_CLIENT_ID"),
     client_secret: System.get_env("SURFCONEXT_CLIENT_SECRET")
 
   config :core, SignInWithApple,
-    redirect_uri: "#{base_url}/apple/auth",
+    redirect_uri: "https://#{app_domain}/apple/auth",
     client_id: System.get_env("SIGN_IN_WITH_APPLE_CLIENT_ID"),
     team_id: System.get_env("SIGN_IN_WITH_APPLE_TEAM_ID"),
     private_key_id: System.get_env("SIGN_IN_WITH_APPLE_PRIVATE_KEY_ID"),
@@ -121,23 +127,6 @@ if config_env() == :prod do
     config :sentry,
       dsn: sentry_dsn,
       environment_name: System.get_env("RELEASE_ENV") || "prod"
-  end
-
-  config :core, :storage,
-    services:
-      System.get_env("STORAGE_SERVICES", "builtin, yoda")
-      |> String.split(",", trim: true)
-      |> Enum.map(&String.trim/1)
-      |> Enum.map(&String.to_atom/1)
-
-  if storage_s3_prefix = System.get_env("STORAGE_S3_PREFIX") do
-    config :core, Systems.Storage.BuiltIn, special: Systems.Storage.BuiltIn.S3
-
-    config :core, Systems.Storage.BuiltIn.S3,
-      bucket: System.get_env("AWS_S3_BUCKET"),
-      prefix: storage_s3_prefix
-  else
-    config :core, Systems.Storage.BuiltIn, special: Systems.Storage.BuiltIn.LocalFS
   end
 
   if content_s3_prefix = System.get_env("CONTENT_S3_PREFIX") do
