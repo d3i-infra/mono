@@ -343,6 +343,10 @@ msgid "platforms.openai"
 msgstr "OpenAI"
 
 #, elixir-autogen, elixir-format, fuzzy
+msgid "platforms.slack"
+msgstr "Slack"
+
+#, elixir-autogen, elixir-format, fuzzy
 msgid "storage_service_ids.builtin"
 msgstr "Next"
 

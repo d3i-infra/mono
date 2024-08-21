@@ -16,5 +16,6 @@ defmodule Systems.Workflow.Platforms do
          :x,
          :youtube,
          :openai,
+         :slack,
        ]}
 end
