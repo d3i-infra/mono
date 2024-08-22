@@ -27,11 +27,7 @@ defmodule Systems.Content.PageBuilder do
 
       def handle_publish(%{assigns: %{current_user: %{id: user_id}}} = socket) do
         # reload user for latest config
-        if Content.Private.can_user_publish?(Account.Public.get!(user_id)) do
-          socket |> set_status(:online)
-        else
-          Content.PageBuilder.handle_request_verification(socket)
-        end
+        socket |> set_status(:online)
       end
 
       def handle_retract(socket) do

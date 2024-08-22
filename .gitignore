@@ -49,3 +49,6 @@ logfile
 /core/config/dev.secret.exs
 /core/docker.env
 /core/playground.exs
+
+/core/priv/static/assets/app.css
+/core/priv/static/assets/app.js
