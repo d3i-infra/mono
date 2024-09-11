@@ -53,6 +53,7 @@ defmodule Systems.Storage.EndpointForm do
         :centerdata -> dgettext("eyra-storage", "centerdata.annotation")
         :aws -> dgettext("eyra-storage", "aws.annotation")
         :azure -> dgettext("eyra-storage", "azure.annotation")
+        :surfresearchdrive -> dgettext("eyra-storage", "azure.annotation")
       end
 
     annotation_title = Storage.ServiceIds.translate(special_type)

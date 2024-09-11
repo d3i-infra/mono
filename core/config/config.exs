@@ -142,7 +142,7 @@ config :core, :version, System.get_env("VERSION", "dev")
 
 config :core, :assignment, external_panels: ~w(liss ioresearch generic)
 
-config :core, :storage, services: ~w(builtin yoda)
+config :core, :storage, services: ~w(builtin yoda surfresearchdrive)
 
 config :core, BankingClient,
   host: 'localhost',

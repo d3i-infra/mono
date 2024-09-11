@@ -13,7 +13,6 @@ defmodule GoogleSignIn.PlugUtils do
   end
 end
 
-
 defmodule GoogleSignIn.AuthorizePlug do
   import Plug.Conn
   import GoogleSignIn.PlugUtils

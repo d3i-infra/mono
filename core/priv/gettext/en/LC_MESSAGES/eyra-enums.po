@@ -318,6 +318,10 @@ msgstr "Azure Blob"
 msgid "storage_service_ids.yoda"
 msgstr "Yoda"
 
+#, elixir-autogen, elixir-format
+msgid "storage_service_ids.surfresearchdrive"
+msgstr "Surf Research Drive"
+
 #, elixir-autogen, elixir-format, fuzzy
 msgid "storage_service_ids.aws"
 msgstr "Amazon S3"

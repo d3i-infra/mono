@@ -60,6 +60,26 @@ msgid "yoda.user.label"
 msgstr "E-mail"
 
 #, elixir-autogen, elixir-format
+msgid "surfresearchdrive.user.label"
+msgstr "E-Mail"
+
+#, elixir-autogen, elixir-format
+msgid "surfresearchdrive.password.label"
+msgstr "WebDAV token"
+
+#, elixir-autogen, elixir-format
+msgid "surfresearchdrive.url.label"
+msgstr "WebDAV Url"
+
+#, elixir-autogen, elixir-format
+msgid "surfresearchdrive.folder.label"
+msgstr "Folder name"
+
+#, elixir-autogen, elixir-format
+msgid "surfresearchdrive.passphrase.label"
+msgstr "Passphrase for encryption"
+
+#, elixir-autogen, elixir-format
 msgid "aws.annotation"
 msgstr "<div>Use Amazon S3 storage. More information: <a href=\"https://aws.amazon.com/s3\">https://aws.amazon.com/s3</a></div>"
 
@@ -82,6 +102,13 @@ msgstr "<div>Use Yoda, a research data management service developed at Utrecht U
 #, elixir-autogen, elixir-format
 msgid "atom.tag"
 msgstr "Storage"
+
+#, elixir-autogen, elixir-format
+msgid "surfresearchdrive.annotation"
+msgstr "<div>Use Surf Research Drive, a storage solution developed by Surf offered by Universities in the Netherlands. <br> More information: <a href=\"https://www.surf.nl/en/services/research-drive\">https://www.surf.nl/en/services/research-drive</a></div>"
+
+#, elixir-autogen, elixir-format
+msgid "project.item.tag"
 
 #, elixir-autogen, elixir-format
 msgid "create.storage.body"

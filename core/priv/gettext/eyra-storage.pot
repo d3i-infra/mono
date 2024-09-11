@@ -60,6 +60,26 @@ msgid "yoda.user.label"
 msgstr ""
 
 #, elixir-autogen, elixir-format
+msgid "surfresearchdrive.user.label"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+msgid "surfresearchdrive.password.label"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+msgid "surfresearchdrive.url.label"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+msgid "surfresearchdrive.folder.label"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+msgid "surfresearchdrive.passphrase.label"
+msgstr ""
+
+#, elixir-autogen, elixir-format
 msgid "aws.annotation"
 msgstr ""
 
@@ -69,6 +89,10 @@ msgstr ""
 
 #, elixir-autogen, elixir-format
 msgid "builtin.annotation"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+msgid "surfresearchdrive.annotation"
 msgstr ""
 
 #, elixir-autogen, elixir-format

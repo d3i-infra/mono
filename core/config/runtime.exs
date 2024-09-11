@@ -97,7 +97,7 @@ if config_env() == :prod do
 
   # CHANGE BY NIEK
   config :core, GoogleSignIn,
-    redirect_uri:  "NOT RELAVANT ANYMORE",
+    redirect_uri: "NOT RELAVANT ANYMORE",
     client_id: "NOT RELEVANT ANYMORE",
     client_secret: "NOT RELEVANT ANYMORE"
 

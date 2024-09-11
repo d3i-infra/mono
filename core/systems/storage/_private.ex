@@ -15,6 +15,7 @@ defmodule Systems.Storage.Private do
   def build_special(:yoda), do: %Storage.Yoda.EndpointModel{}
   def build_special(:aws), do: %Storage.AWS.EndpointModel{}
   def build_special(:azure), do: %Storage.Azure.EndpointModel{}
+  def build_special(:surfresearchdrive), do: %Storage.SurfResearchDrive.EndpointModel{}
 
   def special_info(%Storage.EndpointModel{} = endpoint) do
     endpoint
@@ -27,6 +28,9 @@ defmodule Systems.Storage.Private do
   def special_info(%Storage.AWS.EndpointModel{}), do: {:aws, Storage.AWS.Backend}
   def special_info(%Storage.Azure.EndpointModel{}), do: {:azure, Storage.Azure.Backend}
 
+  def special_info(%Storage.SurfResearchDrive.EndpointModel{}),
+    do: {:azure, Storage.SurfResearchDrive.Backend}
+
   @spec storage_info(any()) ::
           {:error, {:storage_info, :not_available}}
           | %{
@@ -35,17 +39,19 @@ defmodule Systems.Storage.Private do
                 | Systems.Storage.Azure.Backend
                 | Systems.Storage.BuiltIn.Backend
                 | Systems.Storage.Centerdata.Backend
-                | Systems.Storage.Yoda.Backend,
+                | Systems.Storage.Yoda.Backend
+                | Systems.Storage.SurfResearchDrive.Backend,
               endpoint: %{
                 :__struct__ =>
                   Systems.Storage.AWS.EndpointModel
                   | Systems.Storage.Azure.EndpointModel
                   | Systems.Storage.BuiltIn.EndpointModel
                   | Systems.Storage.Centerdata.EndpointModel
-                  | Systems.Storage.Yoda.EndpointModel,
+                  | Systems.Storage.Yoda.EndpointModel
+                  | Systems.Storage.SurfResearchDrive.EndpointModel,
                 optional(any()) => any()
               },
-              key: :aws | :azure | :builtin | :centerdata | :yoda
+              key: :aws | :azure | :builtin | :centerdata | :yoda | :surfresearchdrive
             }
   def storage_info(storage_endpoint, %{external_panel: external_panel}) do
     if special = Storage.EndpointModel.special(storage_endpoint) do

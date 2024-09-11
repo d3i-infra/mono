@@ -319,6 +319,10 @@ msgid "storage_service_ids.yoda"
 msgstr ""
 
 #, elixir-autogen, elixir-format
+msgid "storage_service_ids.surfresearchdrive"
+msgstr ""
+
+#, elixir-autogen, elixir-format
 msgid "storage_service_ids.aws"
 msgstr ""
 
