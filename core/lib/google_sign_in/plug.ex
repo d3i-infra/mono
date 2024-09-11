@@ -13,7 +13,6 @@ defmodule GoogleSignIn.PlugUtils do
   end
 end
 
-
 defmodule GoogleSignIn.AuthorizePlug do
   @moduledoc """
   This controller manages the OpenID Connect flow with SurfConext.

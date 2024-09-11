@@ -33,6 +33,16 @@ defmodule Core.Repo.Migrations.AddStorage do
       timestamps()
     end
 
+    create table(:storage_endpoints_surfresearchdrive) do
+      add(:user, :string)
+      add(:password, :string)
+      add(:url, :string)
+      add(:folder, :string)
+      add(:passphrase, :string)
+
+      timestamps()
+    end
+
     create table(:storage_endpoints) do
       add(:aws_id, references(:storage_endpoints_aws, on_delete: :nilify_all), null: true)
       add(:azure_id, references(:storage_endpoints_azure, on_delete: :nilify_all), null: true)
@@ -42,6 +52,7 @@ defmodule Core.Repo.Migrations.AddStorage do
       )
 
       add(:yoda_id, references(:storage_endpoints_yoda, on_delete: :nilify_all), null: true)
+      add(:surfresearchdrive_id, references(:storage_endpoints_surfresearchdrive, on_delete: :nilify_all), null: true)
       timestamps()
     end
 
@@ -51,7 +62,8 @@ defmodule Core.Repo.Migrations.AddStorage do
         2 > CASE WHEN aws_id IS NULL THEN 0 ELSE 1 END +
         CASE WHEN azure_id IS NULL THEN 0 ELSE 1 END +
         CASE WHEN centerdata_id IS NULL THEN 0 ELSE 1 END +
-        CASE WHEN yoda_id IS NULL THEN 0 ELSE 1 END
+        CASE WHEN yoda_id IS NULL THEN 0 ELSE 1 END +
+        CASE WHEN surfresearchdrive_id IS NULL THEN 0 ELSE 1 END
         """
       )
     )
@@ -76,5 +88,6 @@ defmodule Core.Repo.Migrations.AddStorage do
     drop(table(:storage_endpoints_centerdata))
     drop(table(:storage_endpoints_azure))
     drop(table(:storage_endpoints_aws))
+    drop(table(:storage_endpoints_surfresearchdrive))
   end
 end

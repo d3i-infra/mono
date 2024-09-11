@@ -48,6 +48,11 @@ defmodule Systems.Storage.Public do
     |> Storage.Azure.EndpointModel.changeset(attrs)
   end
 
+  defp prepare_endpoint_special(:surfresearchdrive, attrs) do
+    %Storage.SurfResearchDrive.EndpointModel{}
+    |> Storage.SurfResearchDrive.EndpointModel.changeset(attrs)
+  end
+
   def store(
         %Storage.EndpointModel{id: endpoint_id} = endpoint,
         %{key: key, backend: backend, special: special},

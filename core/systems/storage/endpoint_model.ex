@@ -22,13 +22,14 @@ defmodule Systems.Storage.EndpointModel do
     belongs_to(:centerdata, Storage.Centerdata.EndpointModel, on_replace: :delete)
     belongs_to(:aws, Storage.AWS.EndpointModel, on_replace: :delete)
     belongs_to(:azure, Storage.Azure.EndpointModel, on_replace: :delete)
+    belongs_to(:surfresearchdrive, Storage.SurfResearchDrive.EndpointModel, on_replace: :delete)
 
     timestamps()
   end
 
   @fields ~w()a
   @required_fields @fields
-  @special_fields ~w(builtin yoda centerdata aws azure)a
+  @special_fields ~w(builtin yoda centerdata aws azure surfresearchdrive)a
 
   @spec changeset(
           {map(), map()}
