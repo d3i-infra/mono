@@ -7,13 +7,13 @@
     <meta name="generator" content="ExDoc v0.29.3">
     <meta name="project" content="core v0.1.0">
 
-    <title>Systems.Project.CreateItemPopup — core v0.1.0</title>
+    <title>Frameworks.Concept.Branch — core v0.1.0</title>
     <link rel="stylesheet" href="dist/html-elixir-MB5C7R66.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
     <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
-    <script src="dist/sidebar_items-0D9CDE06.js"></script>
+    <script src="dist/sidebar_items-26D1DE57.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -21,7 +21,7 @@
 
 
   </head>
-  <body data-type="modules" class="page-module">
+  <body data-type="modules" class="page-protocol">
     <script>
 
       try {
@@ -102,12 +102,12 @@ core
 </button>
 
 
-    <a href="https://github.com/eyra/mono/blob/main/systems/project/create_item_popup.ex#L1" title="View Source" class="icon-action" rel="help">
+    <a href="https://github.com/eyra/mono/blob/main/frameworks/concept/branch.ex#L1" title="View Source" class="icon-action" rel="help">
       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
       <span class="sr-only">View Source</span>
     </a>
 
-  <span translate="no">Systems.Project.CreateItemPopup</span> 
+  <span translate="no">Frameworks.Concept.Branch</span> <small>protocol</small>
   <small class="app-vsn" translate="no">(core v0.1.0)</small>
 
 </h1>
@@ -122,6 +122,28 @@ core
       </a>
       Summary
     </h1>
+<div class="summary-types summary">
+  <h2>
+    <a href="#types">Types</a>
+  </h2>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:scope/0" translate="no">scope()</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:t/0" translate="no">t()</a>
+
+      </div>
+
+    </div>
+
+</div>
 <div class="summary-functions summary">
   <h2>
     <a href="#functions">Functions</a>
@@ -129,7 +151,7 @@ core
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#add_child/3" translate="no">add_child(socket, child_name, child_map)</a>
+        <a href="#hierarchy/1" translate="no">hierarchy(term)</a>
 
       </div>
 
@@ -137,55 +159,7 @@ core
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#async/3" translate="no">async(socket, name, closure)</a>
-
-      </div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#compose_child/2" translate="no">compose_child(socket, child_name)</a>
-
-      </div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#compose_element/2" translate="no">compose_element(socket, element_id)</a>
-
-      </div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#handle_info/2" translate="no">handle_info(params, socket)</a>
-
-      </div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#reset_fabric/1" translate="no">reset_fabric(socket)</a>
-
-      </div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#update_child/2" translate="no">update_child(context, child_name)</a>
-
-      </div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#version/0" translate="no">version()</a>
+        <a href="#name/2" translate="no">name(term, arg2)</a>
 
       </div>
 
@@ -196,6 +170,75 @@ core
   </section>
 
 
+  <section id="types" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#types">
+        <i class="ri-link-m" aria-hidden="true"></i>
+        <span class="sr-only">Link to this section</span>
+      </a>
+Types
+    </h1>
+    <div class="types-list">
+<section class="detail" id="t:scope/0">
+
+  <div class="detail-header">
+    <a href="#t:scope/0" class="detail-link" title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">scope()</h1>
+
+      <a href="https://github.com/eyra/mono/blob/main/frameworks/concept/branch.ex#L4" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> scope() :: :self | :parent</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:t/0">
+
+  <div class="detail-header">
+    <a href="#t:t/0" class="detail-link" title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">t()</h1>
+
+      <a href="https://github.com/eyra/mono/blob/main/frameworks/concept/branch.ex#L1" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> t() :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+
+    </div>
+  </section>
+
   <section id="functions" class="details-list">
     <h1 class="section-heading">
       <a class="hover-link" href="#functions">
@@ -205,16 +248,16 @@ core
 Functions
     </h1>
     <div class="functions-list">
-<section class="detail" id="add_child/3">
+<section class="detail" id="hierarchy/1">
 
   <div class="detail-header">
-    <a href="#add_child/3" class="detail-link" title="Link to this function">
+    <a href="#hierarchy/1" class="detail-link" title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature" translate="no">add_child(socket, child_name, child_map)</h1>
+    <h1 class="signature" translate="no">hierarchy(term)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/systems/project/create_item_popup.ex#L2" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/frameworks/concept/branch.ex#L10" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -223,20 +266,26 @@ Functions
   </div>
 
   <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> hierarchy(<a href="#t:t/0">t</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">list</a>()</pre>
+
+      </div>
 
 
   </section>
 </section>
-<section class="detail" id="async/3">
+<section class="detail" id="name/2">
 
   <div class="detail-header">
-    <a href="#async/3" class="detail-link" title="Link to this function">
+    <a href="#name/2" class="detail-link" title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature" translate="no">async(socket, name, closure)</h1>
+    <h1 class="signature" translate="no">name(term, arg2)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/systems/project/create_item_popup.ex#L2" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/frameworks/concept/branch.ex#L7" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -246,137 +295,11 @@ Functions
 
   <section class="docstring">
 
+      <div class="specs">
 
-  </section>
-</section>
-<section class="detail" id="compose_child/2">
+          <pre translate="no"><span class="attribute">@spec</span> name(<a href="#t:t/0">t</a>(), <a href="#t:scope/0">scope</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()</pre>
 
-  <div class="detail-header">
-    <a href="#compose_child/2" class="detail-link" title="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature" translate="no">compose_child(socket, child_name)</h1>
-
-      <a href="https://github.com/eyra/mono/blob/main/systems/project/create_item_popup.ex#L2" class="icon-action" rel="help" title="View Source">
-       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
-     </a>
-
-
-  </div>
-
-  <section class="docstring">
-
-
-  </section>
-</section>
-<section class="detail" id="compose_element/2">
-
-  <div class="detail-header">
-    <a href="#compose_element/2" class="detail-link" title="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature" translate="no">compose_element(socket, element_id)</h1>
-
-      <a href="https://github.com/eyra/mono/blob/main/systems/project/create_item_popup.ex#L2" class="icon-action" rel="help" title="View Source">
-       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
-     </a>
-
-
-  </div>
-
-  <section class="docstring">
-
-
-  </section>
-</section>
-<section class="detail" id="handle_info/2">
-
-  <div class="detail-header">
-    <a href="#handle_info/2" class="detail-link" title="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature" translate="no">handle_info(params, socket)</h1>
-
-      <a href="https://github.com/eyra/mono/blob/main/systems/project/create_item_popup.ex#L2" class="icon-action" rel="help" title="View Source">
-       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
-     </a>
-
-
-  </div>
-
-  <section class="docstring">
-
-
-  </section>
-</section>
-<section class="detail" id="reset_fabric/1">
-
-  <div class="detail-header">
-    <a href="#reset_fabric/1" class="detail-link" title="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature" translate="no">reset_fabric(socket)</h1>
-
-      <a href="https://github.com/eyra/mono/blob/main/systems/project/create_item_popup.ex#L2" class="icon-action" rel="help" title="View Source">
-       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
-     </a>
-
-
-  </div>
-
-  <section class="docstring">
-
-
-  </section>
-</section>
-<section class="detail" id="update_child/2">
-
-  <div class="detail-header">
-    <a href="#update_child/2" class="detail-link" title="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature" translate="no">update_child(context, child_name)</h1>
-
-      <a href="https://github.com/eyra/mono/blob/main/systems/project/create_item_popup.ex#L2" class="icon-action" rel="help" title="View Source">
-       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
-     </a>
-
-
-  </div>
-
-  <section class="docstring">
-
-
-  </section>
-</section>
-<section class="detail" id="version/0">
-
-  <div class="detail-header">
-    <a href="#version/0" class="detail-link" title="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature" translate="no">version()</h1>
-
-      <a href="https://github.com/eyra/mono/blob/main/systems/project/create_item_popup.ex#L2" class="icon-action" rel="help" title="View Source">
-       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
-     </a>
-
-
-  </div>
-
-  <section class="docstring">
+      </div>
 
 
   </section>
