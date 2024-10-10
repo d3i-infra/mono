@@ -7,13 +7,13 @@
     <meta name="generator" content="ExDoc v0.29.3">
     <meta name="project" content="core v0.1.0">
 
-    <title>CoreWeb.Live.Feature.Menus — core v0.1.0</title>
+    <title>CoreWeb.Plug.LiveRemoteIp — core v0.1.0</title>
     <link rel="stylesheet" href="dist/html-elixir-MB5C7R66.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
     <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
-    <script src="dist/sidebar_items-26D1DE57.js"></script>
+    <script src="dist/sidebar_items-0D9CDE06.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -21,7 +21,7 @@
 
 
   </head>
-  <body data-type="modules" class="page-behaviour">
+  <body data-type="modules" class="page-module">
     <script>
 
       try {
@@ -102,16 +102,20 @@ core
 </button>
 
 
-    <a href="https://github.com/eyra/mono/blob/main/lib/core_web/live/feature/menus.ex#L1" title="View Source" class="icon-action" rel="help">
+    <a href="https://github.com/eyra/mono/blob/main/lib/core_web/live_remote_ip.ex#L1" title="View Source" class="icon-action" rel="help">
       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
       <span class="sr-only">View Source</span>
     </a>
 
-  <span translate="no">CoreWeb.Live.Feature.Menus</span> <small>behaviour</small>
+  <span translate="no">CoreWeb.Plug.LiveRemoteIp</span> 
   <small class="app-vsn" translate="no">(core v0.1.0)</small>
 
 </h1>
 
+
+  <section id="moduledoc">
+<p>A Plug that sets a session variable to the current remote ip.</p>
+  </section>
 
 
   <section id="summary" class="details-list">
@@ -122,14 +126,14 @@ core
       </a>
       Summary
     </h1>
-<div class="summary-types summary">
+<div class="summary-functions summary">
   <h2>
-    <a href="#types">Types</a>
+    <a href="#functions">Functions</a>
   </h2>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#t:active_menu_item/0" translate="no">active_menu_item()</a>
+        <a href="#call/2" translate="no">call(conn, opts)</a>
 
       </div>
 
@@ -137,29 +141,7 @@ core
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#t:menu_builder/0" translate="no">menu_builder()</a>
-
-      </div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#t:menus/0" translate="no">menus()</a>
-
-      </div>
-
-    </div>
-
-</div>
-<div class="summary-callbacks summary">
-  <h2>
-    <a href="#callbacks">Callbacks</a>
-  </h2>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#c:get_menus_config/0" translate="no">get_menus_config()</a>
+        <a href="#init/1" translate="no">init(options)</a>
 
       </div>
 
@@ -170,25 +152,25 @@ core
   </section>
 
 
-  <section id="types" class="details-list">
+  <section id="functions" class="details-list">
     <h1 class="section-heading">
-      <a class="hover-link" href="#types">
+      <a class="hover-link" href="#functions">
         <i class="ri-link-m" aria-hidden="true"></i>
         <span class="sr-only">Link to this section</span>
       </a>
-Types
+Functions
     </h1>
-    <div class="types-list">
-<section class="detail" id="t:active_menu_item/0">
+    <div class="functions-list">
+<section class="detail" id="call/2">
 
   <div class="detail-header">
-    <a href="#t:active_menu_item/0" class="detail-link" title="Link to this type">
+    <a href="#call/2" class="detail-link" title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this type</span>
+      <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature" translate="no">active_menu_item()</h1>
+    <h1 class="signature" translate="no">call(conn, opts)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core_web/live/feature/menus.ex#L4" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core_web/live_remote_ip.ex#L9" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -197,26 +179,20 @@ Types
   </div>
 
   <section class="docstring">
-
-      <div class="specs">
-
-          <pre translate="no"><span class="attribute">@type</span> active_menu_item() :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>()</pre>
-
-      </div>
 
 
   </section>
 </section>
-<section class="detail" id="t:menu_builder/0">
+<section class="detail" id="init/1">
 
   <div class="detail-header">
-    <a href="#t:menu_builder/0" class="detail-link" title="Link to this type">
+    <a href="#init/1" class="detail-link" title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this type</span>
+      <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature" translate="no">menu_builder()</h1>
+    <h1 class="signature" translate="no">init(options)</h1>
 
-      <a href="https://github.com/eyra/mono/blob/main/lib/core_web/live/feature/menus.ex#L2" class="icon-action" rel="help" title="View Source">
+      <a href="https://github.com/eyra/mono/blob/main/lib/core_web/live_remote_ip.ex#L5" class="icon-action" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -225,84 +201,6 @@ Types
   </div>
 
   <section class="docstring">
-
-      <div class="specs">
-
-          <pre translate="no"><span class="attribute">@type</span> menu_builder() :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>()</pre>
-
-      </div>
-
-
-  </section>
-</section>
-<section class="detail" id="t:menus/0">
-
-  <div class="detail-header">
-    <a href="#t:menus/0" class="detail-link" title="Link to this type">
-      <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this type</span>
-    </a>
-    <h1 class="signature" translate="no">menus()</h1>
-
-      <a href="https://github.com/eyra/mono/blob/main/lib/core_web/live/feature/menus.ex#L3" class="icon-action" rel="help" title="View Source">
-       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
-     </a>
-
-
-  </div>
-
-  <section class="docstring">
-
-      <div class="specs">
-
-          <pre translate="no"><span class="attribute">@type</span> menus() :: [<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>()]</pre>
-
-      </div>
-
-
-  </section>
-</section>
-
-    </div>
-  </section>
-
-  <section id="callbacks" class="details-list">
-    <h1 class="section-heading">
-      <a class="hover-link" href="#callbacks">
-        <i class="ri-link-m" aria-hidden="true"></i>
-        <span class="sr-only">Link to this section</span>
-      </a>
-Callbacks
-    </h1>
-    <div class="callbacks-list">
-<section class="detail" id="c:get_menus_config/0">
-
-  <div class="detail-header">
-    <a href="#c:get_menus_config/0" class="detail-link" title="Link to this callback">
-      <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this callback</span>
-    </a>
-    <h1 class="signature" translate="no">get_menus_config()</h1>
-
-      <a href="https://github.com/eyra/mono/blob/main/lib/core_web/live/feature/menus.ex#L6" class="icon-action" rel="help" title="View Source">
-       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
-     </a>
-
-
-  </div>
-
-  <section class="docstring">
-
-      <div class="specs">
-
-          <pre translate="no"><span class="attribute">@callback</span> get_menus_config() ::
-  {<a href="#t:menu_builder/0">menu_builder</a>(), <a href="#t:menus/0">menus</a>()}
-  | {<a href="#t:menu_builder/0">menu_builder</a>(), <a href="#t:menus/0">menus</a>(), <a href="#t:active_menu_item/0">active_menu_item</a>()}
-  | nil</pre>
-
-      </div>
 
 
   </section>
