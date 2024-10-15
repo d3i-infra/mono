@@ -47,7 +47,7 @@ defmodule(GoogleSignIn.CallbackPlug) do
 
   def call(conn, otp_app) do
     session_params = get_session(conn, :google_sign_in)
-    creator? = Map.get(session_params || %{}, "creator", nil) == "true"
+    creator? = true
 
     config = config(otp_app) |> Keyword.put(:session_params, session_params)
 
