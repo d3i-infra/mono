@@ -15,6 +15,8 @@ defmodule Systems.Assignment.CrewWorkView do
   alias Systems.Consent
   alias Systems.Document
 
+  alias Local.Schema.Run
+
   def update(
         %{
           work_items: work_items,
@@ -407,6 +409,42 @@ defmodule Systems.Assignment.CrewWorkView do
     }
   end
 
+  # local modeler implementation
+
+  @impl true
+  def handle_event(
+        "feldspar_event",
+        %{"__type__" => "CommandSystemGetParameters", "study_id" => study_id} = params,
+        socket
+      ) do
+    participant_id = get_in(socket.assigns, [:panel_info, :participant])
+
+    run = LocalModeler.get(study_id, participant_id)
+    send_data(socket, params["__type__"], params["action_id"], run) 
+  end
+
+  @impl true
+  def handle_event(
+        "feldspar_event",
+        %{
+          "__type__" => "CommandSystemPutParameters",
+          "check_value" => check_value,
+          "id" => run_id,
+          "model" => model,
+          "study_id" => study_id,
+        } = params,
+      socket
+      ) do
+
+    participant_id = get_in(socket.assigns, [:panel_info, :participant])
+
+    response =
+      %Run{id: run_id, model: model, check_value: check_value, study_id: study_id}
+      |> LocalModeler.put(participant_id)
+
+    send_data(socket, params["__type__"], params["action_id"], response)
+  end
+
   @impl true
   def handle_event("feldspar_event", event, socket) do
     {
@@ -680,5 +718,9 @@ defmodule Systems.Assignment.CrewWorkView do
         <.child name={:context_menu} fabric={@fabric} />
       </div>
     """
+  end
+
+  defp send_data(socket, action, action_id, data) do
+    {:noreply, push_event(socket, "to_feldspar_event", %{action: action, action_id: action_id, data: data})}
   end
 end

@@ -21,7 +21,9 @@ defmodule Core.Application do
       {Oban, oban_config()},
       {Systems.Banking.Supervisor, [{:euro, "account-number"}]},
       CoreWeb.Endpoint,
-      {Systems.Rate.Server, rate_config()}
+      {Systems.Rate.Server, rate_config()},
+      MutexManager,
+      RunTaskQueue,
     ]
 
     opts = [strategy: :one_for_one, name: Core.Supervisor]

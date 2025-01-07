@@ -8,6 +8,7 @@ defmodule CoreWeb.Live.Routes do
       scope "/", CoreWeb do
         pipe_through(:browser)
         live("/fake_qualtrics", FakeQualtrics)
+        live "/local", LocalPage
       end
 
       if Mix.env() in [:test] do

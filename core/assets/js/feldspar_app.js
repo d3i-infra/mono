@@ -1,7 +1,6 @@
 export const FeldsparApp = {
   mounted() {
     console.log("[FeldsparApp] Mounted");
-
     console.log(this.el.dataset);
 
     const iframe = this.getIframe();
@@ -9,6 +8,14 @@ export const FeldsparApp = {
       this.onFrameLoaded();
     });
     iframe.setAttribute("src", this.el.dataset.src);
+    
+    // send Phoenix event to Port
+    window.addEventListener("phx:to_feldspar_event", function(event) {
+      const action = event.detail.action
+      const action_id = event.detail.action_id
+      const data = event.detail.data
+      iframe.contentWindow.postMessage({ action, action_id, data })
+    })
 
     window.addEventListener("message", function(event) {
       if (event.data.action === "resize") {

@@ -15,6 +15,8 @@ defmodule Systems.Feldspar.AppPage do
 
   alias Systems.Feldspar
 
+  alias Local.Schema.Run
+
   @impl true
   def mount(%{"id" => app_id}, _session, socket) do
     app_url = Feldspar.Public.get_public_url(app_id) <> "/index.html"
@@ -49,6 +51,38 @@ defmodule Systems.Feldspar.AppPage do
         locale: CoreWeb.Live.Hook.Locale.get_locale()
       }
     }
+  end
+
+  # local modeler implementation
+
+  @impl true
+  def handle_event(
+        "feldspar_event",
+        %{"__type__" => "CommandSystemGetParameters", "study_id" => study_id} = params,
+        %{assigns: %{query_params: %{"participantId" => participant_id}}} = socket
+      ) do
+    run = LocalModeler.get(study_id, participant_id)
+
+    send_data(socket, params["__type__"], run)
+  end
+
+  @impl true
+  def handle_event(
+        "feldspar_event",
+        %{
+          "__type__" => "CommandSystemPutParameters",
+          "check_value" => check_value,
+          "id" => run_id,
+          "model" => model,
+          "study_id" => study_id,
+        } = params,
+        %{assigns: %{query_params: %{"participantId" => participant_id}}} = socket
+      ) do
+    response =
+      %Run{id: run_id, model: model, check_value: check_value, study_id: study_id}
+      |> LocalModeler.put(participant_id)
+
+    send_data(socket, params["__type__"], response)
   end
 
   @impl true
@@ -89,4 +123,10 @@ defmodule Systems.Feldspar.AppPage do
     </.stripped>
     """
   end
+
+
+  defp send_data(socket, action, data) do
+    {:noreply, push_event(socket, "to_feldspar_event", %{action: action, data: data})}
+  end
+
 end

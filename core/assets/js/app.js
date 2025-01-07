@@ -297,3 +297,14 @@ liveSocket.connect();
 // >> liveSocket.enableLatencySim(1000)  // enabled for duration of browser session
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket;
+
+window.addEventListener(`phx:download_study`, (event) => {
+    let a = document.createElement("a");
+    a.setAttribute("href", event.detail.uri);
+    a.setAttribute('download', '');
+    a.setAttribute('target', '_blank');
+    document.body.appendChild(a);
+    a.click()
+    document.body.removeChild(a);
+})
+
