@@ -32,7 +32,7 @@ defmodule CoreWeb.Endpoint do
       from: {:core, "priv/bundles/#{to_string(@bundle)}"},
       gzip: false,
       only_matching:
-        ~w(css assets fonts images js favicon icon apple-touch-icon robots manifest sw privacy-statement.pdf)
+        ~w(css assets fonts exports images js favicon icon apple-touch-icon robots manifest sw privacy-statement.pdf)
     )
   end
 
@@ -48,7 +48,7 @@ defmodule CoreWeb.Endpoint do
     from: :core,
     gzip: false,
     only_matching:
-      ~w(css assets fonts images js favicon logo icon apple-touch-icon robots manifest sw)
+      ~w(css assets fonts exports images js favicon logo icon apple-touch-icon robots manifest sw)
   )
 
   # Code reloading can be explicitly enabled under the

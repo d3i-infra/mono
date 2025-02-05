@@ -1,5 +1,6 @@
 defmodule CoreWeb.LocalPage do
   use CoreWeb, :live_view
+  use CoreWeb, :controller
   import LocalWeb.CoreComponents
 
   alias Local.Studies
@@ -70,7 +71,7 @@ defmodule CoreWeb.LocalPage do
     File.write(Path.join(get_static_exports_dir(), file_name), content)
 
     # TDOD: perform some cleanup
-    {:noreply, push_event(socket, "download_study", %{uri: Path.join("uploads", file_name)})}
+    {:noreply, push_event(socket, "download_study", %{uri: Path.join("exports", file_name)})}
   end
 
   # TODO: decompose this render into multiple small ones, for composability
@@ -230,6 +231,6 @@ defmodule CoreWeb.LocalPage do
   end
 
   defp get_static_exports_dir() do
-    Path.join(:code.priv_dir(:core), "static/uploads")
+    Path.join(:code.priv_dir(:core), "static/exports")
   end
 end
