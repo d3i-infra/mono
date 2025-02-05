@@ -8,14 +8,14 @@ defmodule RunTask do
   """
 
   @timeout 10_000
-  #@timeout 100_000
+  # @timeout 100_000
 
   defstruct [:pid, wants: []]
 
   # Client API
 
   def get_run_id(wants) do
-    Task.async(fn -> 
+    Task.async(fn ->
       ask_queue_for_run(wants)
     end)
     |> Task.await(:infinity)
@@ -23,7 +23,10 @@ defmodule RunTask do
 
   # private functions
 
-  defp ask_queue_for_run([]) do {:ok, :done} end
+  defp ask_queue_for_run([]) do
+    {:ok, :done}
+  end
+
   defp ask_queue_for_run(wants) do
     task = %RunTask{pid: self(), wants: wants}
 

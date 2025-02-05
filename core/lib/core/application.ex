@@ -23,7 +23,7 @@ defmodule Core.Application do
       CoreWeb.Endpoint,
       {Systems.Rate.Server, rate_config()},
       MutexManager,
-      RunTaskQueue,
+      RunTaskQueue
     ]
 
     opts = [strategy: :one_for_one, name: Core.Supervisor]

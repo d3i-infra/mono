@@ -9,22 +9,25 @@ defmodule CoreWeb.LocalPage do
   # CHANGE THE ERRORS BECAUSE FORM ALREADY HAS ERRORS key
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, 
-      new_study: to_form(%{ 
-        "errors" => [],
-        "n_runs" => 2
-      }),
-      select_study: to_form(%{
-        "studies" => get_all_study_ids(),
-        "selected_study" => "",
-      }),
-      run_information: to_form(%{
-        "runs" => nil,
-        "selected_run_information" => ""
-      })
-    )}
+    {:ok,
+     assign(socket,
+       new_study:
+         to_form(%{
+           "errors" => [],
+           "n_runs" => 2
+         }),
+       select_study:
+         to_form(%{
+           "studies" => get_all_study_ids(),
+           "selected_study" => ""
+         }),
+       run_information:
+         to_form(%{
+           "runs" => nil,
+           "selected_run_information" => ""
+         })
+     )}
   end
-
 
   @impl true
   def handle_event("create_study", %{"study_id" => study_id, "n_runs" => n_runs}, socket) do
@@ -36,20 +39,26 @@ defmodule CoreWeb.LocalPage do
   def handle_event("update_n_runs", %{"n_runs" => n_runs}, socket) do
     {:noreply, socket |> do_update_form_params(:new_study, "n_runs", n_runs)}
   end
-  
+
   @impl true
   def handle_event("study_selected", %{"study_select" => study_id}, socket) do
-    updated_socket = socket
-    |> do_update_form_params(:select_study, "selected_study", study_id)
-    |> do_update_form_params(:run_information, "runs", get_all_run_ids(study_id))
+    updated_socket =
+      socket
+      |> do_update_form_params(:select_study, "selected_study", study_id)
+      |> do_update_form_params(:run_information, "runs", get_all_run_ids(study_id))
 
     {:noreply, updated_socket}
   end
 
   @impl true
   def handle_event("run_selected", %{"run_select" => id}, socket) do
-    updated_socket = socket
-    |> do_update_form_params(:run_information, "selected_run_information", get_run_information(id))
+    updated_socket =
+      socket
+      |> do_update_form_params(
+        :run_information,
+        "selected_run_information",
+        get_run_information(id)
+      )
 
     {:noreply, updated_socket}
   end
@@ -58,9 +67,10 @@ defmodule CoreWeb.LocalPage do
   def handle_event("delete_study", %{"value" => id}, socket) do
     Studies.delete_study(id)
 
-    updated_socket = socket
-    |> do_update_form_params(:select_study, "studies", get_all_study_ids())
-    |> do_update_form_params(:select_study, "selected_study", "")
+    updated_socket =
+      socket
+      |> do_update_form_params(:select_study, "studies", get_all_study_ids())
+      |> do_update_form_params(:select_study, "selected_study", "")
 
     {:noreply, updated_socket}
   end
@@ -77,7 +87,7 @@ defmodule CoreWeb.LocalPage do
   # TODO: decompose this render into multiple small ones, for composability
   @impl true
   def render(assigns) do
-      ~H"""
+    ~H"""
       <!-- Create a new study -->
       <div class="text-2xl font-semibold border-b" >Create a new study</div>
       <.simple_form class="border rounded-lg p-5" for={@new_study} phx-change="update_n_runs" phx-submit="create_study">
@@ -181,7 +191,10 @@ defmodule CoreWeb.LocalPage do
     Enum.map(map, fn x -> x.id end)
   end
 
-  defp get_run_information("") do "" end
+  defp get_run_information("") do
+    ""
+  end
+
   defp get_run_information(id) do
     Studies.get_run(id) |> Jason.encode!()
   end
@@ -193,30 +206,30 @@ defmodule CoreWeb.LocalPage do
   defp handle_study_creation(%{valid?: true}, study_id, n_runs, socket) do
     case Studies.initialize_study(study_id, String.to_integer(n_runs)) do
       {:ok, _} ->
-        socket 
+        socket
         |> do_update_form_params(:select_study, "studies", get_all_study_ids())
         |> do_update_form(:new_study, :errors, [])
-      
-      {:error, error_changeset} -> 
-        socket 
+
+      {:error, error_changeset} ->
+        socket
         |> do_update_form(:new_study, :errors, error_changeset.errors)
     end
   end
 
   defp handle_study_creation(%{valid?: false} = changeset, _, _, socket) do
-    socket 
+    socket
     |> do_update_form(:new_study, :errors, changeset.errors)
   end
 
   defp extract_error(errors, key) do
     case Keyword.get(errors, key) do
-      nil -> [] 
+      nil -> []
       {error, _} -> [error]
     end
   end
 
   defp do_update_form_params(socket, key, nested_key, value) do
-    socket 
+    socket
     |> update(key, fn form ->
       put_in(form.params[nested_key], value)
     end)
@@ -224,7 +237,8 @@ defmodule CoreWeb.LocalPage do
 
   defp do_update_form(socket, key, nested_key, value) do
     IO.inspect(nested_key)
-    socket 
+
+    socket
     |> update(key, fn form ->
       put_in(form, [Access.key!(nested_key)], value)
     end)

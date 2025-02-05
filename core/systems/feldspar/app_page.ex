@@ -74,7 +74,7 @@ defmodule Systems.Feldspar.AppPage do
           "check_value" => check_value,
           "id" => run_id,
           "model" => model,
-          "study_id" => study_id,
+          "study_id" => study_id
         } = params,
         %{assigns: %{query_params: %{"participantId" => participant_id}}} = socket
       ) do
@@ -124,9 +124,7 @@ defmodule Systems.Feldspar.AppPage do
     """
   end
 
-
   defp send_data(socket, action, data) do
     {:noreply, push_event(socket, "to_feldspar_event", %{action: action, data: data})}
   end
-
 end

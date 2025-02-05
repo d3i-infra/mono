@@ -9,8 +9,9 @@ defmodule LocalModeler do
   def get(study_id, participant_id) do
     Studies.upsert_participant(participant_id)
 
-    result = Studies.get_uncompleted_runs(study_id, participant_id) 
-    |> RunTask.get_run_id()
+    result =
+      Studies.get_uncompleted_runs(study_id, participant_id)
+      |> RunTask.get_run_id()
 
     case result do
       {:ok, :done} ->
@@ -42,29 +43,32 @@ defmodule LocalModeler do
 
     with true <- not_yet_updated,
          true <- check_values_match do
-
       Studies.update_run(current_run, %{model: updated_run.model})
       Studies.create_update(updated_run.id, participant_id)
       MutexManager.release(updated_run.id)
 
-      Logger.info("[LocalModeler] Run id: #{current_run.id}, was updated to model: #{updated_run.model}, by: #{participant_id}")
+      Logger.info(
+        "[LocalModeler] Run id: #{current_run.id}, was updated to model: #{updated_run.model}, by: #{participant_id}"
+      )
+
       create_payload("PayloadString", "run id was updated")
     else
-      _ -> 
+      _ ->
         Logger.error("[LocalModeler] Conditions did not match in put")
         create_payload("PayloadError", "Conditions did not meet, run was not updated")
     end
   end
-  def put(_, _) do raise "Pattern matching put parameters failed" end
+
+  def put(_, _) do
+    raise "Pattern matching put parameters failed"
+  end
 
   # Helpers
 
   def create_payload(payload, value) do
-  %{
-    "__type__" => payload,
-    "value" => value,
+    %{
+      "__type__" => payload,
+      "value" => value
     }
   end
-
 end
-

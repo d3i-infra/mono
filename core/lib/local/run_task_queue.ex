@@ -14,7 +14,7 @@ defmodule RunTaskQueue do
   # Client API
 
   def start_link(_) do
-    GenServer.start_link(__MODULE__, [] , name: __MODULE__)
+    GenServer.start_link(__MODULE__, [], name: __MODULE__)
   end
 
   def add(%RunTask{} = task) do
@@ -29,7 +29,6 @@ defmodule RunTaskQueue do
     GenServer.cast(__MODULE__, {:notify_mutex_unlocked, id})
   end
 
-
   # Server Callbacks
 
   @impl true
@@ -38,13 +37,16 @@ defmodule RunTaskQueue do
   end
 
   @impl true
-  def handle_cast({:add, task}, run_task_queue) do 
-    run_task_queue = case get_and_lock_run(task) do
-      nil ->
-        add_to_queue(run_task_queue, task)
-      _ ->
-        run_task_queue
-    end
+  def handle_cast({:add, task}, run_task_queue) do
+    run_task_queue =
+      case get_and_lock_run(task) do
+        nil ->
+          add_to_queue(run_task_queue, task)
+
+        _ ->
+          run_task_queue
+      end
+
     {:noreply, run_task_queue}
   end
 
@@ -55,13 +57,16 @@ defmodule RunTaskQueue do
 
   @impl true
   def handle_cast({:notify_mutex_unlocked, id}, run_task_queue) do
-    run_task_queue = case get_task_in_queue_that_wants_id(run_task_queue, id) do
-      nil -> 
-        run_task_queue
-      task ->
-        task |> get_and_lock_run()
-        run_task_queue |> delete_from_queue(task)
-    end
+    run_task_queue =
+      case get_task_in_queue_that_wants_id(run_task_queue, id) do
+        nil ->
+          run_task_queue
+
+        task ->
+          task |> get_and_lock_run()
+          run_task_queue |> delete_from_queue(task)
+      end
+
     {:noreply, run_task_queue}
   end
 
@@ -74,7 +79,7 @@ defmodule RunTaskQueue do
     List.delete(run_task_queue, task)
   end
 
-  defp get_and_lock_run(%{pid: _pid, wants: []} = task) do 
+  defp get_and_lock_run(%{pid: _pid, wants: []} = task) do
     notify_task(task, {:ok, :done})
   end
 

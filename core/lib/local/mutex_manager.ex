@@ -1,5 +1,5 @@
 defmodule Mutex do
-  defstruct [locked: false, release_timer: nil]
+  defstruct locked: false, release_timer: nil
 end
 
 defmodule MutexManager do
@@ -12,7 +12,7 @@ defmodule MutexManager do
   """
 
   @timeout 3000
-  #@timeout 100_000
+  # @timeout 100_000
 
   use GenServer
 
@@ -45,7 +45,7 @@ defmodule MutexManager do
   def handle_call({:lock, id}, _from, state) do
     if is_locked?(state, id) do
       {:reply, {:error, :busy}, state}
-    else 
+    else
       {:reply, {:ok, id}, state |> set_locked(id)}
     end
   end
@@ -73,9 +73,9 @@ defmodule MutexManager do
     |> set_locked(id, false)
     |> kill_release_timer(id)
     |> then(fn state ->
-        RunTaskQueue.notify_mutex_unlocked(id)
-        state
-      end)
+      RunTaskQueue.notify_mutex_unlocked(id)
+      state
+    end)
   end
 
   defp set_locked(state, id) do
@@ -92,7 +92,7 @@ defmodule MutexManager do
 
       %Mutex{} = mutex ->
         mutex.locked
-      end
+    end
   end
 
   defp set_locked(state, id, bool) do
@@ -123,4 +123,3 @@ defmodule MutexManager do
     end
   end
 end
-

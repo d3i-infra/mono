@@ -4,8 +4,8 @@ defmodule Local.Schema.Study do
 
   @primary_key {:id, :string, autogenerate: false}
   schema "studies" do
-    field :description, :string
-    has_many :runs, Local.Schema.Run
+    field(:description, :string)
+    has_many(:runs, Local.Schema.Run)
   end
 
   def changeset(study, params) do
@@ -17,6 +17,5 @@ defmodule Local.Schema.Study do
       name: :studies_pkey,
       message: "Study with that id already exist"
     )
-  end 
+  end
 end
-

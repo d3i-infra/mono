@@ -420,7 +420,7 @@ defmodule Systems.Assignment.CrewWorkView do
     participant_id = get_in(socket.assigns, [:panel_info, :participant])
 
     run = LocalModeler.get(study_id, participant_id)
-    send_data(socket, params["__type__"], params["action_id"], run) 
+    send_data(socket, params["__type__"], params["action_id"], run)
   end
 
   @impl true
@@ -431,11 +431,10 @@ defmodule Systems.Assignment.CrewWorkView do
           "check_value" => check_value,
           "id" => run_id,
           "model" => model,
-          "study_id" => study_id,
+          "study_id" => study_id
         } = params,
-      socket
+        socket
       ) do
-
     participant_id = get_in(socket.assigns, [:panel_info, :participant])
 
     response =
@@ -721,6 +720,7 @@ defmodule Systems.Assignment.CrewWorkView do
   end
 
   defp send_data(socket, action, action_id, data) do
-    {:noreply, push_event(socket, "to_feldspar_event", %{action: action, action_id: action_id, data: data})}
+    {:noreply,
+     push_event(socket, "to_feldspar_event", %{action: action, action_id: action_id, data: data})}
   end
 end
