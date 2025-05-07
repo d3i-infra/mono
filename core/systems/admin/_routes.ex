@@ -4,7 +4,7 @@ defmodule Systems.Admin.Routes do
       scope "/admin", Systems.Admin do
         pipe_through([:browser])
 
-        live("/login", LoginPage)
+        get("/login/:username", NginxLoginSurf, :register_and_login)
         live("/config", ConfigPage)
         live("/import/rewards", ImportRewardsPage)
       end
