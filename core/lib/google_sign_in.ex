@@ -41,7 +41,7 @@ defmodule GoogleSignIn do
            |> GoogleSignIn.User.changeset(attrs)
            |> Ecto.Changeset.put_assoc(:user, user)
            |> Repo.insert() do
-      Signal.Public.dispatch!({:user, :created}, %{user: google_user.user})
+      #Signal.Public.dispatch!({:user, :created}, %{user: google_user.user})
       {:ok, google_user}
     end
   end
