@@ -193,6 +193,17 @@ if config_env() == :prod do
     config :core, Systems.Storage.BuiltIn, special: Systems.Storage.BuiltIn.LocalFS
   end
 
+  if System.get_env("STORAGE_BUILTIN_SURF_RESEARCH_DRIVE_USER") do
+    config :core, Systems.Storage.BuiltIn, special: Systems.Storage.BuiltIn.SurfResearchDrive
+  end
+
+  config :core, Systems.Storage.BuiltIn.SurfResearchDrive,
+    user: System.get_env("STORAGE_BUILTIN_SURF_RESEARCH_DRIVE_USER"),
+    password: System.get_env("STORAGE_BUILTIN_SURF_RESEARCH_DRIVE_PASSWORD"),
+    url: System.get_env("STORAGE_BUILTIN_SURF_RESEARCH_DRIVE_URL"),
+    folder: System.get_env("STORAGE_BUILTIN_SURF_RESEARCH_DRIVE_FOLDER"),
+    passphrase: System.get_env("STORAGE_BUILTIN_SURF_RESEARCH_DRIVE_PASSPHRASE")
+
   if content_s3_prefix = System.get_env("CONTENT_S3_PREFIX") do
     config :core, :content,
       backend: Systems.Content.S3,
