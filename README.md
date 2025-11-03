@@ -8,6 +8,20 @@ The changes with the upstream are:
 - No footer
 - No brand logo
 - Changed login
+- support for Surf Research Drive
+
+## Surf Research Drive
+
+To use Surf Research Drive you need to configure an app, this will result in a password that you can use to store the data.
+
+If you want donated data to be stored on Surf Research Drive set these environment variables when deploying Next:
+
+| Variable Name                                   | Example Value                                  | Description |
+|------------------------------------------------|------------------------------------------------|-------------|
+| `STORAGE_BUILTIN_SURF_RESEARCH_DRIVE_USER`      | `1234565@intitution.com`                       | Your Surf Drive user account |
+| `STORAGE_BUILTIN_SURF_RESEARCH_DRIVE_PASSWORD`  | `ASDASD-QWEQWE-ZXCZXC`                         | Auto generated password |
+| `STORAGE_BUILTIN_SURF_RESEARCH_DRIVE_URL`       | `https://WebDAVUrl.nl/remote.php/etc/etc`      | WebDAV Url |
+| `STORAGE_BUILTIN_SURF_RESEARCH_DRIVE_FOLDER`    | `foler name`                                   | folder within SURF Research Drive where files will be stored |
 
 
 # Eyra Mono
